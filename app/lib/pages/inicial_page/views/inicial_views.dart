@@ -35,28 +35,35 @@ class InicialPage extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          if (state is FormularioLoading) {
-            return const LoadingWidget();
-          } else if (state is FormularioFailure) {
-            return FailureWidget(mensaje: state.mensaje);
-          } else {
-            return InicialWidget(
-              nombreCtrl: nombreCtrl,
-              correoCtrl: correoCtrl,
-              passCtrl: passCtrl,
-              onPressed: () {
-                context.read<FormularioBloc>().add(
-                      EnviarFormularioEvent(
-                        nombre: nombreCtrl.text,
-                        correo: correoCtrl.text,
-                        password: passCtrl.text,
-                      ),
-                    );
-              },
-            );
-          }
+  if (state is FormularioLoading) {
+    return const Scaffold(
+      body: Center(child: LoadingWidget()),
+    );
+  } else if (state is FormularioFailure) {
+    return Scaffold(
+      body: Center(child: FailureWidget(mensaje: state.mensaje)),
+    );
+  } else {
+    return Scaffold(
+      body: InicialWidget(
+        nombreCtrl: nombreCtrl,
+        correoCtrl: correoCtrl,
+        passCtrl: passCtrl,
+        onPressed: () {
+          context.read<FormularioBloc>().add(
+                EnviarFormularioEvent(
+                  nombre: nombreCtrl.text,
+                  correo: correoCtrl.text,
+                  password: passCtrl.text,
+                ),
+              );
         },
       ),
     );
   }
-}
+    }
+    )
+      );
+
+          }
+        }
