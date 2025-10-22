@@ -20,7 +20,7 @@ class FormView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => FormularioCubit()..cargarDatos(),
+      create: (context) => FormularioCubit()..cargarDatos(),
       child: BlocBuilder<FormularioCubit, FormularioState>(
         builder: (context, state) {
           if (state is FormularioLoading) {
@@ -32,7 +32,9 @@ class FormView extends StatelessWidget {
               password: password,
             );
           } else {
-            return const Text("Cargando...");
+            return const Scaffold(
+              body: Center(child: Text("Esperando carga...")),
+            );
           }
         },
       ),

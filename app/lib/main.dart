@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:app/pages/inicial_page/views/inicial_views.dart';
+import 'package:flutter/material.dart';
+
 
 void main() {
   runApp(const MyApp());

@@ -16,7 +16,7 @@ class FormularioSuccess extends FormularioState {}
 class FormularioFailure extends FormularioState {
   final String mensaje;
 
-  const FormularioFailure({required this.mensaje});
+  const FormularioFailure(this.mensaje);
 
   @override
   List<Object> get props => [mensaje];

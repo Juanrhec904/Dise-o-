@@ -9,7 +9,6 @@ class DioApi {
       final response = await _dio.get(
         'https://mocki.io/v1/6c8a4867-b5ce-4a61-97b4-550dfea91473',
       );
-
       if (response.statusCode == 200) {
         final List data = response.data;
         return data.map((e) => Usuario.fromJson(e)).toList();
